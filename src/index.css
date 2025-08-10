@@ -6,10 +6,14 @@ html {
 
 .nav-underline {
   @apply relative after:absolute after:left-0 after:h-[2px] after:w-full 
-    after:origin-left after:scale-x-0 after:bg-white 
+    after:origin-left after:scale-x-0 after:bg-black 
     after:transition-transform after:duration-300 hover:after:scale-x-100;
 }
 
 .nav-underline::after {
-  bottom: -4px; 
+  bottom: -4px;
+}
+
+.dark .nav-underline::after {
+  background-color: #38bdf8;
 }
