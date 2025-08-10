@@ -36,7 +36,7 @@ function Navigations({ darkMode, darkModeChange }) {
         </button>
       </div>
 
-    <div className="relative flex-1 -mr-24">
+    <div className="hidden lg:block xl:block relative flex-1 -mr-24">
         <ul className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-8 text-lg">
             <li><a href="#home" className="nav-underline">Home</a></li>
             <li><a href="#about" className="nav-underline">About</a></li>
