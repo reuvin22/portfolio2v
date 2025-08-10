@@ -81,12 +81,12 @@ function Navigations({ darkMode, darkModeChange }) {
 
       <div className="hidden lg:flex justify-end w-24">
         <button
-          onClick={toggleDarkMode}
-          className={`p-2 rounded-full transition-colors cursor-pointer ${
+        onClick={toggleDarkMode}
+        className={`p-2 rounded-full transition-colors cursor-pointer mr-24 ${
             darkMode ? "hover:bg-gray-700" : "hover:bg-gray-200"
-          }`}
+        }`}
         >
-          <FontAwesomeIcon icon={darkMode ? faSun : faMoon} className="text-xl" />
+        <FontAwesomeIcon icon={darkMode ? faSun : faMoon} className="text-xl" />
         </button>
       </div>
 

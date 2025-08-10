@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
-html {
+html, body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .nav-underline {
   @apply relative after:absolute after:left-0 after:h-[2px] after:w-full 
     after:origin-left after:scale-x-0 after:bg-black 
     after:transition-transform after:duration-300 hover:after:scale-x-100;
-  color: white;
 }
 
 .nav-underline::after {

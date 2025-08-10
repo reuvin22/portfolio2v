@@ -9,19 +9,19 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-<div
-  className={`pt-5 min-h-screen overflow-x-hidden transition-colors duration-300 ${
-    darkMode
-      ? "bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 text-white"
-      : "bg-white text-black"
-  }`}
->
-  <Navigations darkMode={darkMode} darkModeChange={setDarkMode} />
-  <Home />
-  <About />
-  <Projects />
-  <Contact />
-</div>
+    <div
+      className={`pt-5 min-h-screen overflow-x-hidden transition-colors duration-300 ${darkMode
+          ? "bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 text-white"
+          : "bg-white text-black"
+        }`}
+      style={{ width: "100vw" }}
+    >
+      <Navigations darkMode={darkMode} darkModeChange={setDarkMode} />
+      <Home />
+      <About />
+      <Projects />
+      <Contact />
+    </div>
   );
 }
 
