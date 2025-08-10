@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 function Home() {
   return (
     <section id="home" className="min-h-screen grid place-items-center px-4 lg:-mt-28">
-      <div className="-mt-48 lg:-mt-0 xl:-mt-0 text-center grid gap-5">
+      <div className="-mt-48 lg:mt-24 xl:mt-24 text-center grid gap-5">
         <motion.h1
           className="text-3xl font-bold sm:text-4xl lg:text-5xl tracking-widest"
           initial={{ opacity: 0, y: -50 }}

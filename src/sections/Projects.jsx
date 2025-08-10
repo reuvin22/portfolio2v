@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 function Projects() {
   return (
     <motion.section
-      id="about"
-      className="min-h-screen pt-20"
+      id="projects"
+      className="min-h-screen pt-20 mt-5"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}

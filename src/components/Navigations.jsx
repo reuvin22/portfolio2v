@@ -21,12 +21,13 @@ function Navigations({ darkMode, darkModeChange }) {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 p-4 flex items-center justify-between transition-colors duration-300 
-        ${darkMode ? "text-white" : "text-black"} 
-        ${isScrolled ? (darkMode ? "bg-slate-800" : "bg-white shadow-md") : "bg-transparent"}
-      mt-8`}
-    >
+        <nav
+        className={`fixed top-0 left-0 w-full z-50 p-4 flex items-center justify-between transition-colors duration-300
+            ${darkMode
+            ? "bg-slate-800/50 backdrop-blur-md border-b border-white/20 text-white"
+            : "bg-white/50 backdrop-blur-md border-b border-black/10 text-black"}
+        `}
+        >
       <div className="flex items-center gap-2 lg:hidden">
         <button
           onClick={toggleDarkMode}
