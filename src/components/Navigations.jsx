@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-function Navigation() {
+function Navigations() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
@@ -37,4 +37,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default Navigations;
