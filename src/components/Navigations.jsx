@@ -1,26 +1,31 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Navigations({ darkMode, darkModeChange }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleDarkMode = () => {
     const newMode = !darkMode;
     darkModeChange(newMode);
-
-    if (newMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark", newMode);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
-      className={`sticky top-0 z-50 p-4 flex items-center justify-between transition-colors ${
-        darkMode ? "text-white" : "text-black"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 p-4 flex items-center justify-between transition-colors duration-300 
+        ${darkMode ? "text-white" : "text-black"} 
+        ${isScrolled ? (darkMode ? "bg-slate-800" : "bg-white shadow-md") : "bg-transparent"}
+      mt-8`}
     >
       <div className="flex items-center gap-2 lg:hidden">
         <button
@@ -35,26 +40,10 @@ function Navigations({ darkMode, darkModeChange }) {
 
       <div className="hidden lg:block xl:block relative flex-1 -mr-24">
         <ul className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-8 text-lg">
-          <li>
-            <a href="#home" className="nav-underline">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="nav-underline">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#projects" className="nav-underline">
-              Project
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="nav-underline">
-              Contact Me
-            </a>
-          </li>
+          <li><a href="#home" className="nav-underline">Home</a></li>
+          <li><a href="#about" className="nav-underline">About</a></li>
+          <li><a href="#projects" className="nav-underline">Project</a></li>
+          <li><a href="#contact" className="nav-underline">Contact Me</a></li>
         </ul>
       </div>
 
@@ -81,12 +70,12 @@ function Navigations({ darkMode, darkModeChange }) {
 
       <div className="hidden lg:flex justify-end w-24">
         <button
-        onClick={toggleDarkMode}
-        className={`p-2 rounded-full transition-colors cursor-pointer mr-24 ${
+          onClick={toggleDarkMode}
+          className={`p-2 rounded-full transition-colors cursor-pointer mr-24 ${
             darkMode ? "hover:bg-gray-700" : "hover:bg-gray-200"
-        }`}
+          }`}
         >
-        <FontAwesomeIcon icon={darkMode ? faSun : faMoon} className="text-xl" />
+          <FontAwesomeIcon icon={darkMode ? faSun : faMoon} className="text-xl" />
         </button>
       </div>
 
@@ -95,18 +84,10 @@ function Navigations({ darkMode, darkModeChange }) {
           darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
         } ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <a href="#home" onClick={() => setMenuOpen(false)}>
-          Home
-        </a>
-        <a href="#about" onClick={() => setMenuOpen(false)}>
-          About
-        </a>
-        <a href="#projects" onClick={() => setMenuOpen(false)}>
-          Project
-        </a>
-        <a href="#contact" onClick={() => setMenuOpen(false)}>
-          Contact Me
-        </a>
+        <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
+        <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+        <a href="#projects" onClick={() => setMenuOpen(false)}>Project</a>
+        <a href="#contact" onClick={() => setMenuOpen(false)}>Contact Me</a>
       </div>
     </nav>
   );
